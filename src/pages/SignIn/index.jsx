@@ -7,18 +7,17 @@ import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
-import useStyles from './styles'
-import Copyright from '@parts/Copyright'
+import useStyles from './style'
 import Link from '@components/Link'
-
+import BaseLayout from '@layouts/Base'
 
 export default function SignIn() {
   const classes = useStyles()
 
   return (
-    <Container component='main' maxWidth='xs'>
-      <div className={classes.paper}>
+    <BaseLayout>
+
+      <div className={classes.paper} >
 
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -66,10 +65,10 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href='/forget' variant='body2' >Forgot password?</Link>
+              <Link href='/forget'>Forgot password?</Link>
             </Grid>
             <Grid item>
-              <Link href='/signup' variant='body2'>
+              <Link href='/signup'>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -78,10 +77,6 @@ export default function SignIn() {
 
       </div>
 
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-
-    </Container>
+    </BaseLayout>
   )
 }

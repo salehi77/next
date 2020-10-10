@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: 16,
+    borderRadius: 10,
   },
   avatar: {
     margin: theme.spacing(1),

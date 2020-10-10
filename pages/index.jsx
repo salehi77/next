@@ -1,3 +1,3 @@
-import Index from '@pages/Index/Index'
+import Home from '@pages/Home'
 
-export default Index
+export default Home
