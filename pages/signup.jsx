@@ -1,3 +1,3 @@
-import SignUp from '@pages/SignUp'
+import SignUp from '@pages/Auth/SignUp'
 
 export default SignUp

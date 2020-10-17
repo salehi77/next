@@ -1,22 +1,34 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { fade, makeStyles, withStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   appbar: {},
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
-  },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
   },
   buttons: {
+    [theme.breakpoints.up('md')]: {
+    },
     alignSelf: 'flex-end',
-    marginBottom: 8,
-    paddingLeft: '4rem',
+    marginBottom: theme.spacing(1),
+    justifyContent: 'center',
+  },
+
+
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+    },
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
   },
 }))
 

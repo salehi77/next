@@ -65,3 +65,6 @@ export const emailReqValid = Yup.string()
 export const boolValid = Yup.boolean()
   .oneOf([true, false], 'Invalid value')
 
+export const repassValid = (ref) => Yup.string()
+  .oneOf([Yup.ref(ref)], 'Passwords must match')
+  .required('Required')

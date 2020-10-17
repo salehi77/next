@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import Avatar from '@material-ui/core/Avatar'
@@ -8,40 +9,50 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Grid from '@material-ui/core/Grid'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
-import useStyles from './style'
 import Link from '@components/Link'
-import BaseLayout from '@layouts/Base'
+import Layout from '@layouts/Simple'
 import { MyTextInput, MyCheckbox, emailReqValid, reqValid } from '@components/Forms'
+import api from '@services/api'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
+import useStyles from '../styles'
 
-export default function SignIn() {
+
+export default function Forget() {
   const classes = useStyles()
 
-  return (
-    <BaseLayout>
 
-      <div className={classes.paper} >
+  return (
+    <Layout>
+      <div className={classes.paper}>
 
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
 
         <Typography component='h1' variant='h5'>
-          Sign in
+          Forget Password
         </Typography>
 
         <Formik
           initialValues={{
             email: '',
-            password: '',
-            remember: false,
           }}
           validationSchema={
             Yup.object({
               email: emailReqValid,
-              password: reqValid
             })
           }
-          onSubmit={(values) => { }}
+          onSubmit={(values) => {
+            api.reset_password(values)
+              .then(() => {
+                toast.success('Email sent')
+                // router.push('/')
+              })
+              .catch((err) => {
+                toast.error('Something wrong')
+              })
+          }}
         >
 
           <Form className={classes.form}>
@@ -50,17 +61,6 @@ export default function SignIn() {
               label='Email'
               name='email'
             />
-
-            <MyTextInput
-              label='Password'
-              name='password'
-            />
-
-            <MyCheckbox
-              label='Remember Me'
-              name='remember'
-            />
-
             <Button
               type='submit'
               fullWidth
@@ -68,12 +68,12 @@ export default function SignIn() {
               color='primary'
               className={classes.submit}
             >
-              Sign In
+              Send Email
           </Button>
 
             <Grid container>
               <Grid item xs>
-                <Link href='/forget'>Forgot password?</Link>
+                <Link href='/signin'>Sing in</Link>
               </Grid>
               <Grid item>
                 <Link href='/signup'>
@@ -88,6 +88,6 @@ export default function SignIn() {
 
       </div>
 
-    </BaseLayout >
+    </Layout>
   )
 }

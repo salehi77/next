@@ -11,7 +11,7 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth={false} className={classes.container}>
+      <Container maxWidth={false} className={classes.container} disableGutters>
         <Header />
         <main className={classes.main}>
           {children}

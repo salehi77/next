@@ -1,21 +1,26 @@
+import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Toolbar from '@material-ui/core/Toolbar'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
-import Input from '@material-ui/core/Input';
-import Divider from '@material-ui/core/Divider';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Input from '@material-ui/core/Input'
+import Divider from '@material-ui/core/Divider'
+import InputLabel from '@material-ui/core/InputLabel'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import FormControl from '@material-ui/core/FormControl'
+import OutlinedInput from '@material-ui/core/OutlinedInput'
 import IconButton from '@material-ui/core/IconButton'
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircle from '@material-ui/icons/AccountCircle'
 import SearchIcon from '@material-ui/icons/Search'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import Link from '@components/Link'
 import useStyles from './style'
+import MoreIcon from '@material-ui/icons/MoreVert'
+import { UserContext } from '@contexts/index'
 
 
 
@@ -28,77 +33,106 @@ const sections = [
 ]
 
 
-export default function Header(props) {
+export default function Header() {
   const classes = useStyles()
+  const user = useContext(UserContext)
+  const [mobileMenu, setMobileMenu] = useState(null);
+
 
   return (
-    <AppBar className={classes.appbar} color='transparent'>
+    <AppBar className={classes.appbar} color='transparent' position='static'>
 
 
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      // spacing={3}
-      >
+      <Toolbar>
 
-        <Grid item>
-          <img src='https://images-na.ssl-images-amazon.com/images/I/41ckhg5EcHL.jpg' width='100' />
-        </Grid>
-        <Grid item xs={6}>
+        <Grid
+          container
+          direction='row'
+          justify='center'
+          alignItems='center'
+        >
 
-          <Toolbar className={classes.toolbar}>
-            <FormControl fullWidth className={classes.margin} variant="outlined">
+          <Grid item component={Link} href='/'>
+            <img src='https://images-na.ssl-images-amazon.com/images/I/41ckhg5EcHL.jpg' width='100' />
+          </Grid>
+          <Grid item xs={12} sm={9} md={6}>
+
+            <FormControl fullWidth variant='outlined'>
               <Input
-                variant="outlined"
+                variant='outlined'
                 startAdornment={
-                  <InputAdornment position="start">
+                  <InputAdornment position='start'>
                     <SearchIcon />
                   </InputAdornment>
                 }
               />
             </FormControl>
 
-          </Toolbar>
 
-          <Toolbar component='nav' variant='dense' className={classes.toolbarSecondary}>
 
-            {
-              sections.map((section) => (
-                <Button as={Link}
-                  key={section.title}
-                  href={section.url}
-                  className={classes.toolbarLink}
-                >
-                  {section.title}
-                </Button>
-              ))
-            }
-          </Toolbar>
 
-        </Grid>
-        <Grid item className={classes.buttons}>
-          <Grid
-            container
-          // spacing={1}
-          >
+            <div className={classes.sectionDesktop}>
+              {
+                sections.map((section) => (
+                  <Button
+                    component={Link}
+                    href=''
+                    key={section.title}
+                    className={classes.toolbarLink}
+                  >
+                    {section.title}
+                  </Button>
+                ))
+              }
+            </div>
+
+
+            <div className={classes.sectionMobile}>
+              <IconButton
+                onClick={(event) => setMobileMenu(event.currentTarget)}
+              >
+                <MoreIcon />
+              </IconButton>
+            </div>
+            <Menu
+              anchorEl={mobileMenu}
+              keepMounted
+              open={Boolean(mobileMenu)}
+              onClose={() => setMobileMenu(null)}
+            >
+              {
+                sections.map((section) => (
+                  <MenuItem
+                    component={Link}
+                    href=''
+                    onClick={() => setMobileMenu(null)}
+                  >
+                    {section.title}
+                  </MenuItem>
+                ))
+              }
+            </Menu>
+
+
+
+          </Grid>
+          <Grid item container className={classes.buttons} xs={12} md={3}>
             <Grid item>
               <Button size='small' href='/signin' as={Link}>
                 sign-in
               </Button>
             </Grid>
-
             <Grid item>
-              <Button size='small' variant='outlined' color="primary" href='/signup' as={Link}>
+              <Button size='small' variant='outlined' color='primary' href='/signup' as={Link}>
                 sign-up
               </Button>
             </Grid>
           </Grid>
+
+
         </Grid>
 
-
-      </Grid>
+      </Toolbar>
 
     </AppBar>
   )
