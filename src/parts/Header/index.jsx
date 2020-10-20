@@ -29,7 +29,8 @@ const sections = [
   { title: 'Sports', url: '/signup' },
   { title: 'Styles', url: '/formik' },
   { title: 'House', url: '/signin' },
-  { title: 'Mobile', url: '/signup' },
+  { title: 'Fashion', url: '/formik' },
+  { title: 'Makeups', url: '/signup' },
 ]
 
 
@@ -53,7 +54,7 @@ export default function Header() {
         >
 
           <Grid item component={Link} href='/'>
-            <img src='https://images-na.ssl-images-amazon.com/images/I/41ckhg5EcHL.jpg' width='100' />
+            <img src='https://images-na.ssl-images-amazon.com/images/I/41ckhg5EcHL.jpg' width='100' height='100' alt='Logo' />
           </Grid>
           <Grid item xs={12} sm={9} md={6}>
 

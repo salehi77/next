@@ -25,52 +25,34 @@ import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
 
 const cards = [
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Colored Spoon',
+    description: '',
+    image: '/images/hue12-photography-rScZlwNBezc-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
+    priceoff: 600,
+    price: 550,
+    rate: 4.5,
+    reviews: 12,
   },
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Mouse',
+    description: '',
+    image: '/images/frankie-valentine-VghbBAYqUJ0-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
+    priceoff: 600,
+    price: 550,
+    rate: 4.5,
+    reviews: 12,
   },
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Speaker',
+    description: '',
+    image: '/images/alex-hu-at7tuZ_6OlY-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
-  },
-  {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
-    imgText: 'main image description',
-    linkText: 'Continue reading...',
-  },
-  {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
-    imgText: 'main image description',
-    linkText: 'Continue reading...',
-  },
-  {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
-    imgText: 'main image description',
-    linkText: 'Continue reading...',
+    priceoff: 600,
+    price: 550,
+    rate: 4.5,
+    reviews: 12,
   },
 ]
 
@@ -100,24 +82,24 @@ export default function FeaturedProducts(props) {
                     />
 
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Heading
-                    </Typography>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {card.title}
+                      </Typography>
                       <Grid container spacing={2} style={{ alignItems: 'center' }}>
                         <Grid item>
                           <Typography className={classes.priceoff}>
-                            600
-                        </Typography>
+                            {card.priceoff}
+                          </Typography>
                         </Grid>
                         <Grid item>
                           <Typography className={classes.price} variant='h6'>
-                            500
-                        </Typography>
+                            {card.price}
+                          </Typography>
                         </Grid>
                         <Grid item className={classes.rateGrid}>
                           <Typography className={classes.rate}>
-                            4.5
-                        </Typography>
+                            {card.rate}
+                          </Typography>
                           <StarRateIcon />
                         </Grid>
                       </Grid>
@@ -129,7 +111,7 @@ export default function FeaturedProducts(props) {
                   <CardActionArea>
 
                     <CardActions >
-                      <Typography>12 Reviews</Typography>
+                      <Typography>{card.reviews} Reviews</Typography>
 
                       <ChevronRightRoundedIcon />
 

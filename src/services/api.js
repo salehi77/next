@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from 'next/router'
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = process.env.API_URL
 const instance = axios.create()
 
 

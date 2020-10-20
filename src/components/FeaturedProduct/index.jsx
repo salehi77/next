@@ -9,12 +9,10 @@ import useStyles from './style'
 
 
 const post = {
-  title: 'Title of a longer featured blog post',
-  description:
-    'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-  image: 'https://source.unsplash.com/random',
+  title: 'Shoes Shop',
+  description: 'New Offers and Discounts',
+  image: '/images/imani-bahati-LxVxPA1LOVM-unsplash.jpg',
   imgText: 'main image description',
-  linkText: 'Continue reading...',
 }
 
 export default function FeaturedProduct(props) {
@@ -32,8 +30,8 @@ export default function FeaturedProduct(props) {
             <Typography variant='h5' color='inherit' paragraph>
               {post.description}
             </Typography>
-            <Link variant='subtitle1' href='#'>
-              {post.linkText}
+            <Link variant='subtitle1' href=''>
+              Visit The Page...
             </Link>
           </div>
         </Grid>

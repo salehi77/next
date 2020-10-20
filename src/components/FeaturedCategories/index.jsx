@@ -23,36 +23,28 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 const cards = [
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Lotions',
+    description: '',
+    image: '/images/deanna-alys-6LBBOwkPzyQ-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
   },
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Camera',
+    description: '',
+    image: '/images/varun-gaba-dcgB3CgidlU-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
   },
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Watch',
+    description: '',
+    image: '/images/rachit-tank-2cFZ_FB08UM-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
   },
   {
-    title: 'Title of a longer featured blog post',
-    description:
-      'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what is most interesting in this post s contents.',
-    image: '/background.png',
+    title: 'Headphone',
+    description: '',
+    image: '/images/c-d-x-PDX_a_82obo-unsplash.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading...',
   },
 ]
 
@@ -67,7 +59,7 @@ export default function FeaturedCategories(props) {
 
       <Paper elevation={4} className={classes.paper}>
 
-        <Typography className={classes.title} variant='h4'>
+        <Typography className={classes.title} variant='h4' component='div'>
           Featured Categories
         </Typography>
 
@@ -80,7 +72,7 @@ export default function FeaturedCategories(props) {
               <Card className={classes.card} variant='outlined'>
                 <CardActionArea as={Link}>
                   <CardHeader
-                    title={<Typography align='center'>Shrimp</Typography>}
+                    title={<Typography align='center'>{card.title}</Typography>}
                   />
                   <CardMedia
                     className={classes.cardMedia}
