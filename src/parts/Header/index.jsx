@@ -25,12 +25,11 @@ import { UserContext } from '@contexts/index'
 
 
 const sections = [
-  { title: 'Electrical', url: '/signin' },
-  { title: 'Sports', url: '/signup' },
-  { title: 'Styles', url: '/formik' },
-  { title: 'House', url: '/signin' },
-  { title: 'Fashion', url: '/formik' },
-  { title: 'Makeups', url: '/signup' },
+  { title: 'استایل', url: '/formik' },
+  { title: 'خانه', url: '/signin' },
+  { title: 'آرایشی', url: '/formik' },
+  { title: 'الکترونیک', url: '/signin' },
+  { title: 'ورزشی', url: '/signup' },
 ]
 
 
@@ -120,12 +119,12 @@ export default function Header() {
           <Grid item container className={classes.buttons} xs={12} md={3}>
             <Grid item>
               <Button size='small' href='/signin' as={Link}>
-                sign-in
+                ورود
               </Button>
             </Grid>
             <Grid item>
               <Button size='small' variant='outlined' color='primary' href='/signup' as={Link}>
-                sign-up
+                ثبت‌نام
               </Button>
             </Grid>
           </Grid>

@@ -3,14 +3,14 @@ import Rotuer, { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { ThemeProvider } from '@material-ui/core/styles'
-import theme from '@theme/theme'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import '@styles/global.scss'
 import api from '@services/api'
 import { toast } from 'react-toastify'
 import { UserContext } from '@contexts/index'
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from '@theme/theme'
 
 
 

@@ -9,9 +9,9 @@ import useStyles from './style'
 
 
 const post = {
-  title: 'Shoes Shop',
-  description: 'New Offers and Discounts',
-  image: '/images/imani-bahati-LxVxPA1LOVM-unsplash.jpg',
+  title: 'مارکت کفش',
+  description: 'پیشنهادها و تخفیف‌های جدید',
+  image: '/image_template/imani-bahati-LxVxPA1LOVM-unsplash.jpg',
   imgText: 'main image description',
 }
 
@@ -31,7 +31,7 @@ export default function FeaturedProduct(props) {
               {post.description}
             </Typography>
             <Link variant='subtitle1' href=''>
-              Visit The Page...
+              مشاهده صفحه...
             </Link>
           </div>
         </Grid>

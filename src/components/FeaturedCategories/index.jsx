@@ -23,27 +23,27 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 const cards = [
   {
-    title: 'Lotions',
+    title: 'لوشن',
     description: '',
-    image: '/images/deanna-alys-6LBBOwkPzyQ-unsplash.jpg',
+    image: '/image_template/deanna-alys-6LBBOwkPzyQ-unsplash.jpg',
     imgText: 'main image description',
   },
   {
-    title: 'Camera',
+    title: 'دوربین',
     description: '',
-    image: '/images/varun-gaba-dcgB3CgidlU-unsplash.jpg',
+    image: '/image_template/varun-gaba-dcgB3CgidlU-unsplash.jpg',
     imgText: 'main image description',
   },
   {
-    title: 'Watch',
+    title: 'ساعت‌مچی',
     description: '',
-    image: '/images/rachit-tank-2cFZ_FB08UM-unsplash.jpg',
+    image: '/image_template/rachit-tank-2cFZ_FB08UM-unsplash.jpg',
     imgText: 'main image description',
   },
   {
-    title: 'Headphone',
+    title: 'هدفون',
     description: '',
-    image: '/images/c-d-x-PDX_a_82obo-unsplash.jpg',
+    image: '/image_template/c-d-x-PDX_a_82obo-unsplash.jpg',
     imgText: 'main image description',
   },
 ]
@@ -60,7 +60,7 @@ export default function FeaturedCategories(props) {
       <Paper elevation={4} className={classes.paper}>
 
         <Typography className={classes.title} variant='h4' component='div'>
-          Featured Categories
+          دسته‌های برگزیده
         </Typography>
 
 

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   rate: {
   },
   rateGrid: {
-    marginLeft: 'auto',
+    marginRight: 'auto',
     display: 'flex',
     flexDirection: 'row',
   },

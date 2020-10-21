@@ -20,14 +20,14 @@ import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
-import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
+import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
 
 
 const cards = [
   {
-    title: 'Colored Spoon',
+    title: 'قاشق رنگی',
     description: '',
-    image: '/images/hue12-photography-rScZlwNBezc-unsplash.jpg',
+    image: '/image_template/hue12-photography-rScZlwNBezc-unsplash.jpg',
     imgText: 'main image description',
     priceoff: 600,
     price: 550,
@@ -35,9 +35,9 @@ const cards = [
     reviews: 12,
   },
   {
-    title: 'Mouse',
+    title: 'موس',
     description: '',
-    image: '/images/frankie-valentine-VghbBAYqUJ0-unsplash.jpg',
+    image: '/image_template/frankie-valentine-VghbBAYqUJ0-unsplash.jpg',
     imgText: 'main image description',
     priceoff: 600,
     price: 550,
@@ -45,9 +45,9 @@ const cards = [
     reviews: 12,
   },
   {
-    title: 'Speaker',
+    title: 'اسپیکر',
     description: '',
-    image: '/images/alex-hu-at7tuZ_6OlY-unsplash.jpg',
+    image: '/image_template/alex-hu-at7tuZ_6OlY-unsplash.jpg',
     imgText: 'main image description',
     priceoff: 600,
     price: 550,
@@ -111,9 +111,9 @@ export default function FeaturedProducts(props) {
                   <CardActionArea>
 
                     <CardActions >
-                      <Typography>{card.reviews} Reviews</Typography>
+                      <Typography>{card.reviews} نظر</Typography>
 
-                      <ChevronRightRoundedIcon />
+                      <ChevronLeftRoundedIcon />
 
                     </CardActions>
 

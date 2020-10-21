@@ -12,7 +12,7 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Container maxWidth='sm'>
-        <Typography variant='body1'>My sticky footer can be found here.</Typography>
+        <Typography variant='body1'>پایین سایت</Typography>
         <Copyright />
       </Container>
     </footer>
