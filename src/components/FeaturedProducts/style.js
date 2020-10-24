@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
+  title: {
+    marginBottom: theme.spacing(4),
+  },
   cardGrid: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
@@ -29,13 +32,6 @@ const useStyles = makeStyles((theme) => ({
   price: {
     fontWeight: 'bold',
     // font
-  },
-  rate: {
-  },
-  rateGrid: {
-    marginRight: 'auto',
-    display: 'flex',
-    flexDirection: 'row',
   },
 }))
 

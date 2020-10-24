@@ -21,7 +21,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
-
+import useGlobalStyle from '@styles/global'
+import clsx from 'clsx'
 
 const cards = [
   {
@@ -58,6 +59,7 @@ const cards = [
 
 export default function FeaturedProducts(props) {
   const classes = useStyles()
+  const classesBase = useGlobalStyle()
 
   return (
 
@@ -65,6 +67,12 @@ export default function FeaturedProducts(props) {
     <Container className={classes.cardGrid} maxWidth='lg'>
 
       <Paper elevation={4} className={classes.paper}>
+
+
+        <Typography className={classes.title} variant='h4' component='div'>
+          محصولات برگزیده
+        </Typography>
+
 
         <Grid container spacing={4}>
 
@@ -85,7 +93,7 @@ export default function FeaturedProducts(props) {
                       <Typography gutterBottom variant="h5" component="div">
                         {card.title}
                       </Typography>
-                      <Grid container spacing={2} style={{ alignItems: 'center' }}>
+                      <Grid container spacing={2} alignItems='center'>
                         <Grid item>
                           <Typography className={classes.priceoff}>
                             {card.priceoff}
@@ -96,7 +104,7 @@ export default function FeaturedProducts(props) {
                             {card.price}
                           </Typography>
                         </Grid>
-                        <Grid item className={classes.rateGrid}>
+                        <Grid item className={clsx(classesBase.flexRow, classesBase.endItem)}>
                           <Typography className={classes.rate}>
                             {card.rate}
                           </Typography>

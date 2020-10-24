@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='theme-color' content={theme.palette.primary.main} />
         </Head>
-        <body dir='rtl'>
+        <body dir='ltr'>
           <Main />
           <NextScript />
         </body>

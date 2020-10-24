@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.20.0",
+    "clsx": "^1.1.1",
     "formik": "^2.1.7",
     "next": "9.5.3",
     "prop-types": "^15.7.2",

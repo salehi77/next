@@ -9,10 +9,12 @@ import Rating from '@material-ui/lab/Rating'
 import Favorite from '@material-ui/icons/Favorite'
 import Link from '@components/Link'
 import useStyles from './style'
-
+import useGlobalStyle from '@styles/global'
+import clsx from 'clsx'
 
 export default function FeaturedProduct(props) {
   const classes = useStyles()
+  const classesBase = useGlobalStyle()
 
   return (
 
@@ -20,83 +22,57 @@ export default function FeaturedProduct(props) {
     <Grid
       container
       direction='column'
+      spacing={2}
     >
 
-      <Grid item>
-
-        <Typography variant='h4'>
-          product name
-          <Favorite />
-        </Typography>
 
 
-      </Grid>
-
-      <Grid item>
-
-        <Rating name="read-only" value={3} readOnly />
-
-      </Grid>
-
-
-      <Grid item>
-
-        <Typography component='span'>
-          500
-        </Typography>
-        <Typography component='span'>
-          600
-        </Typography>
-        <Typography component='span'>
-          24%
-        </Typography>
-
+      <Grid item className={classesBase.flexRow}>
+        <div>
+          <Typography variant='h4' className={classes.rate}>
+            Name
+          </Typography>
+          <div>
+            <Rating name='read-only' value={3} readOnly size='small' />
+            <Typography variant='caption'>4.5</Typography>
+          </div>
+        </div>
+        <Favorite className={classesBase.endItem} />
       </Grid>
 
 
 
       <Grid item>
 
-        <Typography component='span'>
-          product description product description product description
-          product description product description product description
-          product description product description product description
-        </Typography>
-
-
-      </Grid>
-
-
-
-      {/* <Grid item>
-        <Paper>
-          <Grid container >
-            {
-              colors.map((color) => (
-                <Grid item>
-                  <Box style={{ backgroundColor: color, padding: 15, borderRadius: '50%', border: '1px solid' }} />
-                </Grid>
-              ))
-            }
+        <Grid container spacing={1} alignItems='center'>
+          <Grid item>
+            <Typography className={classes.price}>
+              550
+            </Typography>
           </Grid>
-        </Paper>
-      </Grid> */}
-
-
-
-
-      <Grid item container>
-
-
-
-        {/* <ButtonGroup color="primary" aria-label="outlined primary button group"> */}
-        <Button>One</Button>
-        {/* <Button>Two</Button> */}
-        <Typography style={{ textAlign: 'center' }}>89</Typography>
-        <Button>Three</Button>
-        {/* </ButtonGroup> */}
+          <Grid item>
+            <Typography className={classes.priceoff}>
+              600
+            </Typography>
+          </Grid>
+        </Grid>
 
       </Grid>
+
+
+
+      <Grid item>
+
+        <Typography component='span'>
+          product description product description product description
+          product description product description product description
+          product description product description product description
+        </Typography>
+
+
+      </Grid>
+
+
 
     </Grid>
   )

@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-// import Link from '@material-ui/core/Link'
 import Link from '@components/Link'
 import useStyles from './style'
 import Container from '@material-ui/core/Container'
@@ -20,6 +20,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import api from '@services/api'
+
 
 const cards = [
   {
@@ -50,6 +52,15 @@ const cards = [
 
 export default function FeaturedCategories(props) {
   const classes = useStyles()
+  // const [categories, setCategories] = useState([])
+
+  // useEffect(() => {
+  //   api.categoryList()
+  //     .then((data) => {
+  //       setCategories(data.slice(0, 4))
+  //     })
+  //     .catch(() => { })
+  // }, [])
 
   return (
 
@@ -66,24 +77,26 @@ export default function FeaturedCategories(props) {
 
         <Grid container spacing={4}>
 
-          {cards.map((card) => (
+          {
+            cards.map((card) => (
 
-            <Grid item xs={12} sm={6} md={3}>
-              <Card className={classes.card} variant='outlined'>
-                <CardActionArea as={Link}>
-                  <CardHeader
-                    title={<Typography align='center'>{card.title}</Typography>}
-                  />
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={card.image}
-                    title='Image title'
-                  />
-                </CardActionArea>
-              </Card>
-            </Grid>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card className={classes.card} variant='outlined'>
+                  <CardActionArea as={Link}>
+                    <CardHeader
+                      title={<Typography align='center'>{card.title}</Typography>}
+                    />
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={card.image}
+                      title='Image title'
+                    />
+                  </CardActionArea>
+                </Card>
+              </Grid>
 
-          ))}
+            ))
+          }
 
         </Grid>
 

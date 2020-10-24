@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
+  price: {
+    // fontWeight: 'bold',
+    fontSize: '1.5rem',
+  },
+  priceoff: {
+    color: theme.palette.text.secondary,
+    textDecoration: 'line-through',
+  },
 }))
 
 export default useStyles
