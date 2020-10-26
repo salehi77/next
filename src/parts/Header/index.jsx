@@ -18,9 +18,11 @@ import SearchIcon from '@material-ui/icons/Search'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import Link from '@components/Link'
-import useStyles from './style'
 import MoreIcon from '@material-ui/icons/MoreVert'
 import { UserContext } from '@contexts/index'
+import useGlobalStyle from '@styles/global'
+import useStyles from './style'
+import clsx from 'clsx'
 
 
 
@@ -33,7 +35,8 @@ const sections = [
 ]
 
 
-export default function Header() {
+export default function Header({ simple }) {
+  const classesBase = useGlobalStyle()
   const classes = useStyles()
   const user = useContext(UserContext)
   const [mobileMenu, setMobileMenu] = useState(null);
@@ -53,9 +56,11 @@ export default function Header() {
         >
 
           <Grid item component={Link} href='/'>
-            <img src='https://images-na.ssl-images-amazon.com/images/I/41ckhg5EcHL.jpg' width='100' height='100' alt='Logo' />
+            <img src='/logo.png' width='100' height='100' alt='Logo' />
           </Grid>
-          <Grid item xs={12} sm={9} md={6}>
+
+
+          <Grid item xs={12} sm={9} md={6} className={clsx([classesBase.flexRow, simple && classesBase.hidden])}>
 
             <FormControl fullWidth variant='outlined'>
               <Input
@@ -116,7 +121,11 @@ export default function Header() {
 
 
           </Grid>
-          <Grid item container className={classes.buttons} xs={12} md={3}>
+
+
+
+
+          <Grid item container xs={12} md={3} className={clsx([classes.buttons, simple && classesBase.hidden])}>
             <Grid item>
               <Button size='small' href='/signin' as={Link}>
                 ورود

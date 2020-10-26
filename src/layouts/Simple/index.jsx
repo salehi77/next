@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
     <div className={classes.root}>
       <Container maxWidth={false} className={classes.container} maxWidth='xs' >
-        {/* <Header /> */}
+        {/* <Header simple /> */}
         <main className={classes.main}>
           {children}
         </main>

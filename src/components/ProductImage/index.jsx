@@ -13,7 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
 
-export default function FeaturedProduct(props) {
+export default function ProductImage(props) {
   const classes = useStyles()
 
   return (

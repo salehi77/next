@@ -20,7 +20,6 @@ export default function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null)
 
 
-
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles) {

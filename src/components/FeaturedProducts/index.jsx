@@ -3,7 +3,6 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Link from '@components/Link'
-import useStyles from './style'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
@@ -22,6 +21,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
 import useGlobalStyle from '@styles/global'
+import useStyles from './style'
 import clsx from 'clsx'
 
 const cards = [
