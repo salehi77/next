@@ -39,7 +39,7 @@ export default function Header({ simple }) {
   const classesBase = useGlobalStyle()
   const classes = useStyles()
   const user = useContext(UserContext)
-  const [mobileMenu, setMobileMenu] = useState(null);
+  const [mobileMenu, setMobileMenu] = useState(null)
 
 
   return (
@@ -50,7 +50,6 @@ export default function Header({ simple }) {
 
         <Grid
           container
-          direction='row'
           justify='center'
           alignItems='center'
         >
@@ -125,7 +124,7 @@ export default function Header({ simple }) {
 
 
 
-          <Grid item container xs={12} md={3} className={clsx([classes.buttons, simple && classesBase.hidden])}>
+          <Grid item container xs={12} md={3} justify='center' className={clsx([classes.buttons, simple && classesBase.hidden])}>
             <Grid item>
               <Button size='small' href='/signin' as={Link}>
                 ورود
@@ -145,4 +144,10 @@ export default function Header({ simple }) {
 
     </AppBar>
   )
+}
+
+
+
+Header.propTypes = {
+  simple: PropTypes.bool,
 }

@@ -5,15 +5,14 @@ import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardActions from '@material-ui/core/CardActions'
-// import Link from '@material-ui/core/Link'
 import Link from '@components/Link'
 import useStyles from './style'
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import Button from '@material-ui/core/Button'
 
 
-export default function ProductImage(props) {
+export default function ProductImage() {
   const classes = useStyles()
 
   return (
@@ -21,11 +20,11 @@ export default function ProductImage(props) {
 
 
 
-      <Card className={classes.root}>
+      <Card>
         <CardMedia
           className={classes.media}
-          image="/background.png"
-          title="Contemplative Reptile"
+          image='/background.png'
+          title='Contemplative Reptile'
         />
       </Card>
 

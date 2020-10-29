@@ -17,6 +17,7 @@ const theme = createMuiTheme({
     background: {
       default: '#fff',
     },
+    // type: 'dark',
   },
   typography: {
     fontFamily: '"Vazir", "B Mitra", "Roboto", "Helvetica", "Arial", sans-serif'

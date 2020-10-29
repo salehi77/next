@@ -19,10 +19,12 @@ import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
-import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
+import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
+import api from '@services/api'
+import ProductArray from '@components/ProductArray'
 
 const cards = [
   {
@@ -64,82 +66,10 @@ export default function FeaturedProducts(props) {
   return (
 
 
-    <Container className={classes.cardGrid} maxWidth='lg'>
 
-      <Paper elevation={4} className={classes.paper}>
-
-
-        <Typography className={classes.title} variant='h4' component='div'>
-          محصولات برگزیده
-        </Typography>
+    <ProductArray products={cards} three />
 
 
-        <Grid container spacing={4}>
-
-          {
-            cards.map((card) => (
-
-              <Grid item xs={12} sm={6} md={4}>
-                <Card className={classes.card} variant='outlined'>
-                  <CardActionArea as={Link} href={'/product'}>
-
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={card.image}
-                      title='Image title'
-                    />
-
-                    <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {card.title}
-                      </Typography>
-                      <Grid container spacing={2} alignItems='center'>
-                        <Grid item>
-                          <Typography className={classes.priceoff}>
-                            {card.priceoff}
-                          </Typography>
-                        </Grid>
-                        <Grid item>
-                          <Typography className={classes.price} variant='h6'>
-                            {card.price}
-                          </Typography>
-                        </Grid>
-                        <Grid item className={clsx(classesBase.flexRow, classesBase.endItem)}>
-                          <Typography className={classes.rate}>
-                            {card.rate}
-                          </Typography>
-                          <StarRateIcon />
-                        </Grid>
-                      </Grid>
-                    </CardContent>
-
-                  </CardActionArea>
-
-
-                  <CardActionArea>
-
-                    <CardActions >
-                      <Typography>{card.reviews} نظر</Typography>
-
-                      <ChevronLeftRoundedIcon />
-
-                    </CardActions>
-
-                  </CardActionArea>
-
-                </Card>
-              </Grid>
-
-            ))
-          }
-
-        </Grid>
-
-
-      </Paper>
-
-
-    </Container>
 
 
 

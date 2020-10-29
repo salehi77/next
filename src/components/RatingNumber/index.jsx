@@ -21,40 +21,26 @@ import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-import api from '@services/api'
-import ProductImage from '@components/ProductImage'
-import RatingNumber from '@components/RatingNumber'
-import ProductActions from '@components/ProductActions'
 
-export default function ProductSummary() {
+export default function RatingNumber() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
 
   return (
 
 
-
-    <Grid
-      container
-      direction='row'
-      spacing={3}
-    >
-
-      <Grid item xs={12} sm={4}>
-
-        <ProductImage />
-
-      </Grid>
+    <span className={classesBase.flexRow}>
 
 
-      <Grid item xs={12} sm={8}>
-
-        <ProductActions />
-
-      </Grid>
+      <Rating name='read-only' value={3} readOnly size='small' />
 
 
-    </Grid>
+      <Typography variant='caption' className={classes.number}>
+        4.5
+      </Typography>
+
+
+    </span>
 
 
   )

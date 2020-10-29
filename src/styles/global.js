@@ -2,10 +2,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => {
   console.log(theme)
+
   return ({
-    hidden: {
-      display: 'none',
-    },
     flexRow: {
       display: 'flex',
       flexDirection: 'row',
@@ -14,9 +12,12 @@ const useStyles = makeStyles((theme) => {
       display: 'flex',
       flexDirection: 'column',
     },
-    endItem: {
-      marginRight: theme.direction === 'rtl' ? 'auto' : 'unset',
-      marginLeft: theme.direction === 'ltr' ? 'auto' : 'unset',
+    endItem: theme.direction === 'ltr' ?
+      { marginLeft: 'auto' } :
+      { marginRight: 'auto' },
+    hidden: {
+      [theme.breakpoints.up('md')]: {},
+      display: 'none',
     },
   })
 })

@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import Link from '@components/Link'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
@@ -18,53 +18,50 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import ShareIcon from '@material-ui/icons/Share'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import Link from '@components/Link'
+import StarRateIcon from '@material-ui/icons/StarRate'
+import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-import api from '@services/api'
-import CategoryArray from '@components/CategoryArray'
 
-const cards = [
-  {
-    title: 'لوشن',
-    description: '',
-    image: '/image_template/deanna-alys-6LBBOwkPzyQ-unsplash.jpg',
-    imgText: 'main image description',
-  },
-  {
-    title: 'دوربین',
-    description: '',
-    image: '/image_template/varun-gaba-dcgB3CgidlU-unsplash.jpg',
-    imgText: 'main image description',
-  },
-  {
-    title: 'ساعت‌مچی',
-    description: '',
-    image: '/image_template/rachit-tank-2cFZ_FB08UM-unsplash.jpg',
-    imgText: 'main image description',
-  },
-  {
-    title: 'هدفون',
-    description: '',
-    image: '/image_template/c-d-x-PDX_a_82obo-unsplash.jpg',
-    imgText: 'main image description',
-  },
-]
 
-export default function FeaturedCategories() {
+
+
+export default function CategoryArray(props) {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
 
+  // c = 3 => 12/c = 4   12/(c-1) = 6
+  // c = 4 => 12/c = 3   12/(c-1) = 4
+  const grid = props.three ? { sm: 6, md: 4 } : { sm: 4, md: 3 }
 
   return (
 
 
+    <Grid container spacing={4}>
 
+      {
+        props.categories.map((card) => (
 
+          <Grid item xs={12} {...grid}>
+            <Card className={classes.card} variant='outlined'>
+              <CardActionArea as={Link}>
+                <CardHeader
+                  title={<Typography align='center'>{card.title}</Typography>}
+                />
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={card.image}
+                  title='Image title'
+                />
+              </CardActionArea>
+            </Card>
+          </Grid>
 
+        ))
+      }
 
-    <CategoryArray categories={cards} />
+    </Grid>
 
 
 
@@ -72,4 +69,11 @@ export default function FeaturedCategories() {
 
 
   )
+}
+
+
+
+CategoryArray.propTypes = {
+  categories: PropTypes.array.isRequired,
+  three: PropTypes.bool,
 }
