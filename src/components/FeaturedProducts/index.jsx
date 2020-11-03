@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -62,12 +63,22 @@ const cards = [
 export default function FeaturedProducts(props) {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    api.FeaturedProducts()
+      .then(data => {
+        setProducts(data)
+      })
+      .catch((e) => { })
+  }, [])
+
 
   return (
 
 
 
-    <ProductArray products={cards} three />
+    <ProductArray products={products} three />
 
 
 

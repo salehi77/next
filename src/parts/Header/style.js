@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   appbar: {},
   toolbar: {},
   toolbarLink: {
-    padding: theme.spacing(1),
+    // padding: theme.spacing(1),
     flexShrink: 0,
   },
   buttons: {

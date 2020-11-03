@@ -55,7 +55,15 @@ const cards = [
 export default function FeaturedCategories() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
+  const [categories, setCategories] = useState([])
 
+  useEffect(() => {
+    api.FeaturedCategories()
+      .then(data => {
+        setCategories(data)
+      })
+      .catch((e) => { })
+  }, [])
 
   return (
 
@@ -64,7 +72,7 @@ export default function FeaturedCategories() {
 
 
 
-    <CategoryArray categories={cards} />
+    <CategoryArray categories={categories} />
 
 
 

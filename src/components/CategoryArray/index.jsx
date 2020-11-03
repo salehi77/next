@@ -43,16 +43,16 @@ export default function CategoryArray(props) {
       {
         props.categories.map((card) => (
 
-          <Grid item xs={12} {...grid}>
+          <Grid key={card.slug_title} item xs={12} {...grid}>
             <Card className={classes.card} variant='outlined'>
-              <CardActionArea as={Link}>
+              <CardActionArea as={Link} href={`/category/${card.slug_title}`}>
                 <CardHeader
                   title={<Typography align='center'>{card.title}</Typography>}
                 />
                 <CardMedia
                   className={classes.cardMedia}
                   image={card.image}
-                  title='Image title'
+                  title={card.imageAlt}
                 />
               </CardActionArea>
             </Card>

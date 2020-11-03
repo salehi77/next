@@ -43,16 +43,14 @@ export default function ProductArray(props) {
       {
         props.products.map((card) => (
 
-          // <Grid item xs={12} sm={6} md={4}>
-          // <Grid item xs={12} sm={4} md={3}>
-          <Grid item xs={12} {...grid}>
+          <Grid key={card.slug_title} item xs={12} {...grid}>
             <Card className={classes.card} variant='outlined'>
-              <CardActionArea as={Link} href={'/product'}>
+              <CardActionArea as={Link} href={`/product/${card.slug_title}`}>
 
                 <CardMedia
                   className={classes.cardMedia}
                   image={card.image}
-                  title='Image title'
+                  title={card.imageAlt}
                 />
 
                 <CardContent className={classes.cardContent}>
@@ -60,9 +58,9 @@ export default function ProductArray(props) {
                     {card.title}
                   </Typography>
                   <Grid container spacing={2} alignItems='center'>
-                    <Grid item>
-                      <Typography className={classes.priceoff}>
-                        {card.priceoff}
+                    <Grid item className={!card.priceOff && classesBase.hidden}>
+                      <Typography className={classes.priceOff}>
+                        {card.priceOff}
                       </Typography>
                     </Grid>
                     <Grid item>
@@ -70,7 +68,7 @@ export default function ProductArray(props) {
                         {card.price}
                       </Typography>
                     </Grid>
-                    <Grid item className={clsx(classesBase.flexRow, classesBase.endItem)}>
+                    <Grid item className={clsx(classesBase.endItem, classesBase.flexRow)}>
                       <Typography>
                         {card.rate}
                       </Typography>

@@ -46,9 +46,27 @@ export default {
   ...authAPI,
 
 
-  categoryList: () => axios.get('/shop/cat/')
+  categoryList: () => axios.get('/shop/categorySet/')
+    .then(({ data }) => data)
+    .catch((err) => Promise.reject(err)),
+
+  productList: () => axios.get('/shop/productSet/')
+    .then(({ data }) => data)
+    .catch((err) => Promise.reject(err)),
+
+  FeaturedCategories: () => axios.get('/shop/categorySet/')
     .then(({ data }) => {
-      return data
+      return data.slice(0, 4)
+    })
+    .catch((err) => Promise.reject(err)),
+
+  FeaturedProducts: () => axios.get('/shop/productSet/')
+    .then(({ data }) => data)
+    .catch((err) => Promise.reject(err)),
+
+  RelatedProducts: () => axios.get('/shop/productSet/')
+    .then(({ data }) => {
+      return data.slice(0, 4)
     })
     .catch((err) => Promise.reject(err)),
 }

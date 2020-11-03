@@ -35,11 +35,11 @@ import clsx from 'clsx'
 
 
 const sections = [
+  { title: 'استایل', url: '/formik' },
+  { title: 'خانه', url: '/signin' },
+  { title: 'آرایشی', url: '/formik' },
+  { title: 'الکترونیک', url: '/signin' },
   { title: 'ورزشی', url: '/signup' },
-  { title: 'مجلسی', url: '/formik' },
-  { title: 'مردانه', url: '/signin' },
-  { title: 'زنانه', url: '/formik' },
-  { title: 'مسافرتی', url: '/signin' },
 ]
 
 
@@ -51,6 +51,7 @@ export default function Header({ simple }) {
 
 
   return (
+
     <AppBar className={classes.appbar} color='transparent' position='static'>
 
 
@@ -83,47 +84,96 @@ export default function Header({ simple }) {
 
 
 
-            <div className={classes.sectionDesktop}>
-              {
-                sections.map((section) => (
-                  <Button
-                    component={Link}
-                    href=''
-                    key={section.title}
-                    className={classes.toolbarLink}
-                  >
-                    {section.title}
-                  </Button>
-                ))
-              }
-            </div>
+            {/* <div style={{ position: 'relative ' }}> */}
 
 
-            <div className={classes.sectionMobile}>
+            <IconButton
+              onClick={(event) => setMobileMenu(event.currentTarget)}
+            >
+              <MoreIcon />
+            </IconButton>
+
+
+            <Paper
+              style={{
+                // display: 'flex',
+                // flexDirection: 'column',
+                // position: 'absolute',
+                // top: 0,
+                // right: 0,
+                // backgroundColor: 'white',
+                // borderRadius: 5,
+                // border: '1px solid #999',
+                // outline: 0,
+              }}
+            >
+              <List
+
+                style={{
+                  display: 'flex',
+                  // flexDirection: 'column',
+                }}
+              // className='MuiList-root MuiMenu-list MuiList-padding'
+              >
+                {
+                  sections.map((section) => (
+                    <ListItem
+                    // className='MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button'
+                    >
+                      <Button
+                        component={Link}
+                        href=''
+                        className={classes.toolbarLink}
+                      >
+                        {section.title}
+                      </Button>
+                    </ListItem>
+                  ))
+                }
+              </List>
+
+
+            </Paper>
+
+
+            {/* </div> */}
+
+
+
+
+            {/* <div className={classes.sectionMobile}>
               <IconButton
                 onClick={(event) => setMobileMenu(event.currentTarget)}
               >
                 <MoreIcon />
               </IconButton>
-            </div>
+
+
+            </div> */}
+
             <Menu
               anchorEl={mobileMenu}
-              keepMounted
               open={Boolean(mobileMenu)}
+              // open
               onClose={() => setMobileMenu(null)}
             >
               {
                 sections.map((section) => (
                   <MenuItem
-                    component={Link}
-                    href=''
                     onClick={() => setMobileMenu(null)}
                   >
-                    {section.title}
+                    <Button
+                      component={Link}
+                      href=''
+                      className={classes.toolbarLink}
+                    >
+                      {section.title}
+                    </Button>
                   </MenuItem>
                 ))
               }
             </Menu>
+
 
 
 

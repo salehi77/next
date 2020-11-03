@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
-  priceoff: {
+  priceOff: {
     color: theme.palette.text.secondary,
     textDecoration: 'line-through',
   },
