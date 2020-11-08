@@ -25,8 +25,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle'
 import SearchIcon from '@material-ui/icons/Search'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
-import Link from '@components/Link'
 import MoreIcon from '@material-ui/icons/MoreVert'
+import Link from '@components/Link'
 import { UserContext } from '@contexts/index'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
@@ -35,11 +35,11 @@ import clsx from 'clsx'
 
 
 const sections = [
-  { title: 'ورزشی', url: '/signup' },
-  { title: 'مجلسی', url: '/formik' },
-  { title: 'مردانه', url: '/signin' },
-  { title: 'زنانه', url: '/formik' },
-  { title: 'مسافرتی', url: '/signin' },
+  { title: 'ورزشی', url: '/sport' },
+  { title: 'مجلسی', url: '/fashion' },
+  { title: 'مردانه', url: '/men' },
+  { title: 'زنانه', url: '/women' },
+  { title: 'مسافرتی', url: '/travel' },
 ]
 
 
@@ -83,20 +83,23 @@ export default function Header({ simple }) {
 
 
 
-            <div className={classes.sectionDesktop}>
+            <List
+              className={classes.sectionDesktop}
+            >
               {
                 sections.map((section) => (
-                  <Button
-                    component={Link}
-                    href=''
-                    key={section.title}
-                    className={classes.toolbarLink}
-                  >
-                    {section.title}
-                  </Button>
+                  <ListItem key={section.url} disableGutters>
+                    <Button
+                      component={Link}
+                      href=''
+                      className={classes.toolbarLink}
+                    >
+                      {section.title}
+                    </Button>
+                  </ListItem>
                 ))
               }
-            </div>
+            </List>
 
 
             <div className={classes.sectionMobile}>
@@ -115,6 +118,7 @@ export default function Header({ simple }) {
               {
                 sections.map((section) => (
                   <MenuItem
+                    key={section.url}
                     component={Link}
                     href=''
                     onClick={() => setMobileMenu(null)}

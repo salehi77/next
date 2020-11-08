@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
-import useStyles from '../styles'
+import useStyles from './style'
 import Header from '@parts/Header'
 import Footer from '@parts/Footer'
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
+import Paper from '@material-ui/core/Paper'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
@@ -23,7 +24,7 @@ export default function SignUp() {
 
   return (
     <Layout>
-      <div className={classes.paper}>
+      <Paper className={classes.paper}>
 
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -121,7 +122,7 @@ export default function SignUp() {
 
         </Formik>
 
-      </div>
+      </Paper>
 
     </Layout>
   )
