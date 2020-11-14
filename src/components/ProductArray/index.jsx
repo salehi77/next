@@ -70,7 +70,7 @@ export default function ProductArray(props) {
                     </Grid>
                     <Grid item className={clsx(classesBase.endItem, classesBase.flexRow)}>
                       <Typography>
-                        {card.rate}
+                        {card.average_rate || 0}
                       </Typography>
                       <StarRateIcon />
                     </Grid>
@@ -80,10 +80,11 @@ export default function ProductArray(props) {
               </CardActionArea>
 
 
-              <CardActionArea>
+              <CardActionArea as={Link} href={`/product/${card.slug_title}#reviews`}>
 
                 <CardActions >
-                  <Typography>{card.reviews} نظر</Typography>
+
+                  <Typography>{card.count_reviews} نظر</Typography>
 
                   <ChevronLeftRoundedIcon />
 

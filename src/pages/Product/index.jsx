@@ -45,7 +45,7 @@ export default function Product() {
 
         <Paper className={classes.paper}>
 
-          <Typography className={classes.title} variant='h4' component='div'>
+          <Typography id='technical_detail' className={classes.title} variant='h4' component='div'>
             جزئیات فنی
           </Typography>
 
@@ -55,7 +55,7 @@ export default function Product() {
 
         <Paper className={classes.paper}>
 
-          <Typography className={classes.title} variant='h4' component='div'>
+          <Typography id='similar_products' className={classes.title} variant='h4' component='div'>
             محصولات مشابه
           </Typography>
 
@@ -66,7 +66,7 @@ export default function Product() {
 
         <Paper className={classes.paper}>
 
-          <Typography className={classes.title} variant='h4' component='div'>
+          <Typography id='reviews' className={classes.title} variant='h4' component='div'>
             نظرات
           </Typography>
 
