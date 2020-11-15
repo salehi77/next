@@ -22,9 +22,9 @@ import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
 import api from '@services/api'
-import ProductImage from '@components/ProductImage'
+import ProductImage from '@components/Product/ProductImage'
 import RatingNumber from '@components/RatingNumber'
-import ProductActions from '@components/ProductActions'
+import ProductActions from '@components/Product/ProductActions'
 
 export default function ProductSummary() {
   const classes = useStyles()

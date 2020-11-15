@@ -23,9 +23,9 @@ import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
 import api from '@services/api'
-import FeaturedProduct from '@components/FeaturedProduct'
-import FeaturedProducts from '@components/FeaturedProducts'
-import FeaturedCategories from '@components/FeaturedCategories'
+import FeaturedProduct from '@components/Home/FeaturedProduct'
+import FeaturedProducts from '@components/Home/FeaturedProducts'
+import FeaturedCategories from '@components/Home/FeaturedCategories'
 import Layout from '@layouts/Layout'
 
 

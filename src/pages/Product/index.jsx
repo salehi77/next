@@ -10,10 +10,10 @@ import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
 import api from '@services/api'
-import ProductSummary from '@components/ProductSummary'
-import ProductDetail from '@components/ProductDetail'
-import RelatedProducts from '@components/RelatedProducts'
-import ProductReviews from '@components/ProductReviews'
+import ProductSummary from '@components/Product/ProductSummary'
+import ProductDetail from '@components/Product/ProductDetail'
+import RelatedProducts from '@components/Product/RelatedProducts'
+import ProductReviews from '@components/Product/ProductReviews'
 
 
 export default function Product() {
