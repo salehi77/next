@@ -32,60 +32,95 @@ import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-import HeaderActions from '@components/Header/HeaderActions'
-import HeaderNavbar from '@components/Header/HeaderNavbar'
 
 
 
+const sections = [
+  { title: 'ورزشی', url: '/sport' },
+  { title: 'مجلسی', url: '/fashion' },
+  { title: 'مردانه', url: '/men' },
+  { title: 'زنانه', url: '/women' },
+  { title: 'مسافرتی', url: '/travel' },
+]
 
 
-export default function Header({ simple }) {
+export default function HeaderNavbar() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
+  const [mobileMenu, setMobileMenu] = useState(null)
 
 
   return (
-    <AppBar className={classes.appbar} color='transparent' position='static'>
+
+    <>
+      <FormControl fullWidth variant='outlined'>
+        <Input
+          variant='outlined'
+          startAdornment={
+            <InputAdornment position='start'>
+              <SearchIcon />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
 
 
-      <Toolbar component='nav'>
 
-        <Grid
-          container
-          justify='center'
-          alignItems='center'
+
+      <List
+        className={classes.sectionDesktop}
+      >
+        {
+          sections.map((section) => (
+            <ListItem key={section.url} disableGutters>
+              <Button
+                component={Link}
+                href=''
+                className={classes.toolbarLink}
+              >
+                {section.title}
+              </Button>
+            </ListItem>
+          ))
+        }
+      </List>
+
+
+      <div className={classes.sectionMobile}>
+        <IconButton
+          onClick={(event) => setMobileMenu(event.currentTarget)}
         >
+          <MoreIcon />
+        </IconButton>
+      </div>
+      <Menu
+        anchorEl={mobileMenu}
+        open={Boolean(mobileMenu)}
+        onClose={() => setMobileMenu(null)}
+      >
+        {
+          sections.map((section) => (
+            <MenuItem
+              key={section.url}
+              component={Link}
+              href=''
+              onClick={() => setMobileMenu(null)}
+            >
+              {section.title}
+            </MenuItem>
+          ))
+        }
+      </Menu>
 
-          <Grid item component={Link} href='/'>
-            <img src='/logo.png' width='100' height='100' alt='Logo' />
-          </Grid>
 
 
-          <Grid item xs={12} sm={9} md={6} className={clsx([classesBase.flexRow, simple && classesBase.hidden])}>
-
-            <HeaderNavbar />
-
-          </Grid>
+    </>
 
 
 
-          <Grid item xs={12} md={3} className={clsx([classes.actions, simple && classesBase.hidden])}>
-
-            <HeaderActions />
-
-          </Grid>
 
 
-        </Grid>
-
-      </Toolbar>
-
-    </AppBar>
   )
 }
 
 
-
-Header.propTypes = {
-  simple: PropTypes.bool,
-}

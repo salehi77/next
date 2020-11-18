@@ -29,63 +29,66 @@ import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import MoreIcon from '@material-ui/icons/MoreVert'
 import Link from '@components/Link'
+import { UserContext } from '@contexts/index'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-import HeaderActions from '@components/Header/HeaderActions'
-import HeaderNavbar from '@components/Header/HeaderNavbar'
 
 
 
 
 
-export default function Header({ simple }) {
+
+export default function HeaderActions() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
+  const { user, setUser } = useContext(UserContext)
+  const [avatarMenu, setAvatarMenu] = useState(null)
 
 
   return (
-    <AppBar className={classes.appbar} color='transparent' position='static'>
 
 
-      <Toolbar component='nav'>
+    <Grid container justify='flex-end'>
 
-        <Grid
-          container
-          justify='center'
-          alignItems='center'
+
+      <Grid item className={clsx(user && classesBase.hidden)}>
+        <Button size='small' href='/signin' as={Link}>
+          ورود
+        </Button>
+        <Button size='small' variant='outlined' color='primary' href='/signup' as={Link}>
+          ثبت‌نام
+        </Button>
+      </Grid>
+
+
+
+      <Grid item className={clsx(!user && classesBase.hidden)}>
+        <Button style={{ minWidth: 0, borderRadius: '50%' }}
+          onClick={(event) => setAvatarMenu(event.currentTarget)}
         >
-
-          <Grid item component={Link} href='/'>
-            <img src='/logo.png' width='100' height='100' alt='Logo' />
-          </Grid>
-
-
-          <Grid item xs={12} sm={9} md={6} className={clsx([classesBase.flexRow, simple && classesBase.hidden])}>
-
-            <HeaderNavbar />
-
-          </Grid>
-
-
-
-          <Grid item xs={12} md={3} className={clsx([classes.actions, simple && classesBase.hidden])}>
-
-            <HeaderActions />
-
-          </Grid>
+          <Avatar className={classes.avatar} alt={user?.email} src={user?.avatar} />
+        </Button>
+        <Menu
+          anchorEl={avatarMenu}
+          open={Boolean(avatarMenu)}
+          onClose={() => setAvatarMenu(null)}
+          getContentAnchorEl={null}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          transformOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Settings</MenuItem>
+          <MenuItem>Bookmarks</MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </Menu>
+      </Grid>
 
 
-        </Grid>
+    </Grid>
 
-      </Toolbar>
 
-    </AppBar>
   )
 }
 
 
-
-Header.propTypes = {
-  simple: PropTypes.bool,
-}

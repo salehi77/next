@@ -22,26 +22,28 @@ import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
 
-export default function RatingNumber() {
+export default function RatingNumber({ rate, single }) {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
 
   return (
-
-
     <span className={classesBase.flexRow}>
-
-
-      <Rating name='read-only' value={3} readOnly size='small' />
-
-
+      {
+        !single
+          ?
+          <Rating name='read-only' value={rate} readOnly size='small' />
+          :
+          <Rating name='read-only' value={1} readOnly size='small' max={1} />
+      }
       <Typography variant='caption' className={classes.number}>
-        4.5
+        {rate}
       </Typography>
-
-
     </span>
-
-
   )
 }
+
+RatingNumber.propTypes = {
+  rate: PropTypes.number.isRequired,
+  single: PropTypes.bool,
+}
+

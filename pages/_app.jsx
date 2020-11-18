@@ -21,6 +21,19 @@ export default function MyApp({ Component, pageProps }) {
 
 
   useEffect(() => {
+    api.validateToken()
+      .then((res) => {
+        api.me()
+          .then((data) => { setUser(data) })
+          .catch(() => { })
+      })
+      .catch(() => {
+        setUser(null)
+      })
+  }, [])
+
+
+  useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles)
@@ -38,30 +51,18 @@ export default function MyApp({ Component, pageProps }) {
         .catch((err) => {
         })
     }
-  }, [router])
-
-
-  useEffect(() => {
-    api.validateToken()
-      .then((res) => {
-        setUser(true)
-      })
-      .catch(() => {
-        setUser(null)
-      })
-  }, [])
-
+  }, [router.query])
 
   return (
     <>
       <Head>
-        <title>My page</title>
+        <title>شوشاپ</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ToastContainer toastClassName='toast' />
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, setUser }}>
           <Component {...pageProps} />
         </UserContext.Provider>
       </ThemeProvider>

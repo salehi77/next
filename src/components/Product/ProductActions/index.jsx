@@ -1,3 +1,4 @@
+import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -21,11 +22,14 @@ import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
+import api from '@services/api'
 import RatingNumber from '@components/RatingNumber'
+import { ProductContext } from '@contexts/index'
 
 export default function ProductActions() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
+  const product = useContext(ProductContext)
 
   return (
 
@@ -41,9 +45,9 @@ export default function ProductActions() {
       <Grid item className={classesBase.flexRow}>
         <div>
           <Typography variant='h4'>
-            Name
+            {product?.title}
           </Typography>
-          <RatingNumber />
+          <RatingNumber rate={product?.average_rate || 0} />
         </div>
         <div className={clsx(classesBase.endItem, classesBase.flexColumn)}>
           <FavoriteIcon className={classesBase.endItem} />
@@ -62,12 +66,12 @@ export default function ProductActions() {
         <Grid container spacing={1} alignItems='center'>
           <Grid item>
             <Typography className={classes.price}>
-              550
+              {product?.discount > 0 ? product.price - product.price * product.discount / 100 : product?.price}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item className={clsx(!product?.discount > 0 && classesBase.hidden)}>
             <Typography className={classes.priceoff}>
-              600
+              {product?.price}
             </Typography>
           </Grid>
         </Grid>
@@ -79,9 +83,7 @@ export default function ProductActions() {
       <Grid item>
 
         <Typography component='span'>
-          product description product description product description
-          product description product description product description
-          product description product description product description
+          {product?.description}
         </Typography>
 
 

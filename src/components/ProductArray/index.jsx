@@ -20,6 +20,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded'
+import RatingNumber from '@components/RatingNumber'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
@@ -69,10 +70,7 @@ export default function ProductArray(props) {
                       </Typography>
                     </Grid>
                     <Grid item className={clsx(classesBase.endItem, classesBase.flexRow)}>
-                      <Typography>
-                        {card.average_rate || 0}
-                      </Typography>
-                      <StarRateIcon />
+                      <RatingNumber rate={card.average_rate || 0} single />
                     </Grid>
                   </Grid>
                 </CardContent>
