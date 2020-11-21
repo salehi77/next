@@ -1,3 +1,4 @@
+import { useContext, useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -56,8 +57,8 @@ export default function ProductReviews() {
     <List>
 
       {
-        items.map(() => (
-          <>
+        items.map((item) => (
+          <Fragment key={item}>
 
 
             <ListItem>
@@ -98,7 +99,7 @@ export default function ProductReviews() {
 
 
             <Divider variant='fullWidth' component='li' />
-          </>
+          </Fragment>
         ))
       }
 

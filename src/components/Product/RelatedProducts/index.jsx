@@ -27,48 +27,7 @@ import clsx from 'clsx'
 import api from '@services/api'
 import ProductArray from '@components/ProductArray'
 
-const cards = [
-  {
-    title: 'قاشق رنگی',
-    description: '',
-    image: '/image_template/hue12-photography-rScZlwNBezc-unsplash.jpg',
-    imgText: 'main image description',
-    priceoff: 600,
-    price: 550,
-    rate: 4.5,
-    reviews: 12,
-  },
-  {
-    title: 'موس',
-    description: '',
-    image: '/image_template/frankie-valentine-VghbBAYqUJ0-unsplash.jpg',
-    imgText: 'main image description',
-    priceoff: 600,
-    price: 550,
-    rate: 4.5,
-    reviews: 12,
-  },
-  {
-    title: 'اسپیکر',
-    description: '',
-    image: '/image_template/alex-hu-at7tuZ_6OlY-unsplash.jpg',
-    imgText: 'main image description',
-    priceoff: 600,
-    price: 550,
-    rate: 4.5,
-    reviews: 12,
-  },
-  {
-    title: 'اسپیکر',
-    description: '',
-    image: '/image_template/alex-hu-at7tuZ_6OlY-unsplash.jpg',
-    imgText: 'main image description',
-    priceoff: 600,
-    price: 550,
-    rate: 4.5,
-    reviews: 12,
-  },
-]
+
 
 export default function RelatedProducts() {
   const classes = useStyles()

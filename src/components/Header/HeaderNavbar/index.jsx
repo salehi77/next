@@ -32,7 +32,7 @@ import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-
+import api from '@services/api'
 
 
 const sections = [
@@ -67,19 +67,16 @@ export default function HeaderNavbar() {
 
 
 
-      <List
-        className={classes.sectionDesktop}
-      >
+      <List className={classes.sectionDesktop}>
         {
           sections.map((section) => (
             <ListItem key={section.url} disableGutters>
-              <Button
-                component={Link}
+              <Link
                 href=''
-                className={classes.toolbarLink}
+                component={Button}
               >
                 {section.title}
-              </Button>
+              </Link>
             </ListItem>
           ))
         }
@@ -97,6 +94,9 @@ export default function HeaderNavbar() {
         anchorEl={mobileMenu}
         open={Boolean(mobileMenu)}
         onClose={() => setMobileMenu(null)}
+        getContentAnchorEl={null}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        transformOrigin={{ vertical: "top", horizontal: "center" }}
       >
         {
           sections.map((section) => (

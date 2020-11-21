@@ -40,15 +40,15 @@ export default function CategoryBreadcrumbs() {
     <Breadcrumbs>
       {
         values.map((value) => (
-          <Link key={value.slug_title} color='inherit' href={`/category/${value.slug_title}`}>
+          <Link key={value.slug_title} href={`/category/${value.slug_title}`} color='inherit'>
             {value.title}
           </Link>
         ))
       }
       {product && product.category &&
         <Link
-          color='textPrimary'
           href={`/category/${product.category.slug_title}`}
+          color='textPrimary'
         >
           {product.category.title}
         </Link>

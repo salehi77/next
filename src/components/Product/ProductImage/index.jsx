@@ -26,8 +26,8 @@ export default function ProductImage() {
       <Card>
         <CardMedia
           className={classes.media}
-          image={product?.image}
-          title='Contemplative Reptile'
+          image={product?.image || 'string'}
+          title={product?.imageAlt}
         />
       </Card>
 

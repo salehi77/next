@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Fab from '@material-ui/core/Fab'
+import Card from '@material-ui/core/Card'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
@@ -28,12 +29,13 @@ import SearchIcon from '@material-ui/icons/Search'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import MoreIcon from '@material-ui/icons/MoreVert'
+import { toast } from 'react-toastify'
 import Link from '@components/Link'
 import { UserContext } from '@contexts/index'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
-
+import api from '@services/api'
 
 
 
@@ -42,7 +44,7 @@ import clsx from 'clsx'
 export default function HeaderActions() {
   const classes = useStyles()
   const classesBase = useGlobalStyle()
-  const { user, setUser } = useContext(UserContext)
+  const { user, refreshUser } = useContext(UserContext)
   const [avatarMenu, setAvatarMenu] = useState(null)
 
 
@@ -53,12 +55,12 @@ export default function HeaderActions() {
 
 
       <Grid item className={clsx(user && classesBase.hidden)}>
-        <Button size='small' href='/signin' as={Link}>
+        <Link href='/signin' component={Button} size='small' variant='outlined' color='primary'>
           ورود
-        </Button>
-        <Button size='small' variant='outlined' color='primary' href='/signup' as={Link}>
+        </Link>
+        <Link href='/signup' component={Button} size='small' variant='contained' color='primary'>
           ثبت‌نام
-        </Button>
+        </Link>
       </Grid>
 
 
@@ -80,7 +82,19 @@ export default function HeaderActions() {
           <MenuItem>Profile</MenuItem>
           <MenuItem>Settings</MenuItem>
           <MenuItem>Bookmarks</MenuItem>
-          <MenuItem>Logout</MenuItem>
+          <MenuItem
+            onClick={() => {
+              setAvatarMenu(null)
+              api.signout()
+                .then(() => {
+                  toast.success('Log out successfully')
+                  refreshUser()
+                })
+                .catch(() => {
+                  toast.error('Something wrong')
+                })
+            }}
+          >Logout</MenuItem>
         </Menu>
       </Grid>
 

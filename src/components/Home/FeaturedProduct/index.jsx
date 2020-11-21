@@ -49,7 +49,7 @@ export default function FeaturedProduct(props) {
             <Typography variant='h5' color='inherit' paragraph>
               {post.description}
             </Typography>
-            <Link variant='subtitle1' href=''>
+            <Link href='' variant='subtitle1'>
               مشاهده صفحه...
             </Link>
           </div>

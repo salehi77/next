@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import Paper from '@material-ui/core/Paper'
@@ -8,20 +9,24 @@ import TextField from '@material-ui/core/TextField'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import Grid from '@material-ui/core/Grid'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import { toast } from 'react-toastify'
 import Link from '@components/Link'
 import Layout from '@layouts/Simple'
 import { MyTextInput, MyCheckbox, emailReqValid, reqValid } from '@components/Forms'
-import api from '@services/api'
-import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
+import { UserContext } from '@contexts/index'
+import useGlobalStyle from '@styles/global'
 import useStyles from '../styles'
+import clsx from 'clsx'
+import api from '@services/api'
 
 
 export default function SignIn() {
   const classes = useStyles()
+  const classesBase = useGlobalStyle()
   const router = useRouter()
+  const { refreshUser } = useContext(UserContext)
 
   return (
     <Layout>
@@ -50,7 +55,8 @@ export default function SignIn() {
             api.signin(values)
               .then(() => {
                 toast.success('Sign in successfully')
-                // router.push('/')
+                refreshUser()
+                router.push(router?.query?.next ? router.query.next : '/')
               })
               .catch(() => {
                 toast.error('Something wrong')

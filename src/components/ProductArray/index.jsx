@@ -46,7 +46,8 @@ export default function ProductArray(props) {
 
           <Grid key={card.slug_title} item xs={12} {...grid}>
             <Card className={classes.card} variant='outlined'>
-              <CardActionArea as={Link} href={`/product/${card.slug_title}`}>
+
+              <Link href={`/product/${card.slug_title}`} component={CardActionArea}>
 
                 <CardMedia
                   className={classes.cardMedia}
@@ -75,10 +76,10 @@ export default function ProductArray(props) {
                   </Grid>
                 </CardContent>
 
-              </CardActionArea>
+              </Link>
 
 
-              <CardActionArea as={Link} href={`/product/${card.slug_title}#reviews`}>
+              <Link href={`/product/${card.slug_title}#reviews`} component={CardActionArea}>
 
                 <CardActions >
 
@@ -88,7 +89,7 @@ export default function ProductArray(props) {
 
                 </CardActions>
 
-              </CardActionArea>
+              </Link>
 
             </Card>
           </Grid>

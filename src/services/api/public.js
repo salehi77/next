@@ -38,6 +38,16 @@ const authAPI = {
       console.log(res)
     })
     .catch((err) => Promise.reject(err)),
+
+  signout: () => {
+    let refresh = localStorage.getItem('refresh_token') || 'random_string'
+    return axios.post('/auth/jwt/destroy/', { refresh })
+      .then(() => {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
+      })
+      .catch((err) => Promise.reject(err))
+  }
 }
 
 const productManager = {

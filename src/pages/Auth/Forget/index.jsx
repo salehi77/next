@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import Paper from '@material-ui/core/Paper'
@@ -8,19 +9,24 @@ import TextField from '@material-ui/core/TextField'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import Grid from '@material-ui/core/Grid'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import CheckIcon from '@material-ui/icons/Check'
+import SaveIcon from '@material-ui/icons/Save'
+import { toast } from 'react-toastify'
 import Link from '@components/Link'
 import Layout from '@layouts/Simple'
 import { MyTextInput, MyCheckbox, emailReqValid, reqValid } from '@components/Forms'
-import api from '@services/api'
-import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
+import useGlobalStyle from '@styles/global'
 import useStyles from '../styles'
+import clsx from 'clsx'
+import api from '@services/api'
 
 
 export default function Forget() {
   const classes = useStyles()
+  const classesBase = useGlobalStyle()
 
 
   return (
@@ -70,7 +76,7 @@ export default function Forget() {
               className={classes.submit}
             >
               Send Email
-          </Button>
+            </Button>
 
             <Grid container>
               <Grid item xs>

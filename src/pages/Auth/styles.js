@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2),
+    width: '100%',
+  },
+  form: {
+    width: '100%',
   },
   avatar: {
     margin: theme.spacing(1),

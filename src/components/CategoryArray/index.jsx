@@ -1,8 +1,8 @@
+import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Link from '@components/Link'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
@@ -20,6 +20,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded'
+import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
@@ -45,7 +46,9 @@ export default function CategoryArray(props) {
 
           <Grid key={card.slug_title} item xs={12} {...grid}>
             <Card className={classes.card} variant='outlined'>
-              <CardActionArea as={Link} href={`/category/${card.slug_title}`}>
+
+              <Link href={`/category/${card.slug_title}`} component={CardActionArea}>
+
                 <CardHeader
                   title={<Typography align='center'>{card.title}</Typography>}
                 />
@@ -54,7 +57,9 @@ export default function CategoryArray(props) {
                   image={card.image}
                   title={card.imageAlt}
                 />
-              </CardActionArea>
+
+              </Link>
+
             </Card>
           </Grid>
 

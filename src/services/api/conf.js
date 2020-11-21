@@ -1,5 +1,5 @@
 import axios from 'axios'
-import router from 'next/router'
+import Router from 'next/router'
 axios.defaults.baseURL = process.env.API_URL
 const instance = axios.create()
 
@@ -29,7 +29,10 @@ instance.interceptors.response.use(
           if (error.response.status === 401 && error.response.data.code === 'token_not_valid') {
             localStorage.removeItem('access_token')
             localStorage.removeItem('refresh_token')
-            router.push('/signin')
+            Router.push({
+              pathname: '/signin',
+              query: { next: Router.router.asPath },
+            })
           }
           else {
             return Promise.reject(error)

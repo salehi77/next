@@ -1,3 +1,4 @@
+import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -21,6 +22,7 @@ import Link from '@components/Link'
 import useGlobalStyle from '@styles/global'
 import useStyles from './style'
 import clsx from 'clsx'
+import api from '@services/api'
 
 export default function RatingNumber({ rate, single }) {
   const classes = useStyles()
@@ -43,7 +45,7 @@ export default function RatingNumber({ rate, single }) {
 }
 
 RatingNumber.propTypes = {
-  rate: PropTypes.number.isRequired,
+  rate: PropTypes.number,
   single: PropTypes.bool,
 }
 

@@ -1,6 +1,6 @@
+import { useContext, useState, useEffect } from 'react'
 import Head from 'next/head'
 import Rotuer, { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ToastContainer } from 'react-toastify'
@@ -19,10 +19,9 @@ export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [user, setUser] = useState(null)
 
-
-  useEffect(() => {
+  function refreshUser() {
     api.validateToken()
-      .then((res) => {
+      .then(() => {
         api.me()
           .then((data) => { setUser(data) })
           .catch(() => { })
@@ -30,6 +29,10 @@ export default function MyApp({ Component, pageProps }) {
       .catch(() => {
         setUser(null)
       })
+  }
+
+  useEffect(() => {
+    refreshUser()
   }, [])
 
 
@@ -49,6 +52,7 @@ export default function MyApp({ Component, pageProps }) {
           toast.success('Your account activated successfully', { autoClose: false })
         })
         .catch((err) => {
+          toast.error('Something wrong', { autoClose: false })
         })
     }
   }, [router.query])
@@ -62,7 +66,7 @@ export default function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ToastContainer toastClassName='toast' />
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, refreshUser }}>
           <Component {...pageProps} />
         </UserContext.Provider>
       </ThemeProvider>

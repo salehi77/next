@@ -1,9 +1,6 @@
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  toolbarLink: {
-    flexShrink: 0,
-  },
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
